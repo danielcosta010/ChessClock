@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-image: url(backgroundXadrez.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
+  overflow-y: hidden;
+
+  font-family: "Ga Maamli", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 2.5em;
+  position: relative;
+}
+
+#player1-time, .botao__white{
+  transform: rotate(-180deg);
+}
+.botao__white, .botao__black{
+  font-family: "Ga Maamli", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.piece-animation__black {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    top: 50px;
+    background-image: url('pecaBlackIA.jpg');
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.piece-animation__white {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    top: -60px;
+    background-image: url('peçasBrancas.jpg');
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    transform: rotate(180deg);
+}
+
+.controls {
+  display: grid;
+  align-items: center;
+  margin: 20px;
+  grid-template-areas: 
+    'label options'
+    'iniciar reiniciar'
+  ;
+  gap: 10px;
+}
+.label {
+  grid-area: label;
+}
+.options {
+  margin: 0 10px;
+  padding: 5px;
+  font-size: 1em;
+  grid-area: options;
+  font-family: "Ga Maamli", sans-serif;
+  border-radius: .5rem;
+}
+
+.iniciar__jogo {
+  padding: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  grid-area: iniciar;
+  font-family: "Ga Maamli", sans-serif;
+  border-radius: .5rem;
+}
+.reiniciar__jogo{
+  padding: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  grid-area: reiniciar;
+  background-color: rgb(81, 71, 146);
+  border-radius: .5rem;
+  border: 2px rgb(81, 189, 171) solid;
+  cursor: pointer;
+  font-family: "Ga Maamli", sans-serif;
+}
+
+/* https://www.brasilcode.com.br/35-botoes-css-com-animacao/ */
+
+
+/* modal reiniciar */
+.modal {
+  display: none; /* Oculto por padrão */
+  position: fixed; /* Fica fixo na tela */
+  z-index: 1; /* Fica na frente de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largura total */
+  height: 100%; /* Altura total */
+  overflow: hidden; /* Permite rolagem se necessário */
+  background-color: rgb(0,0,0); /* Cor de fundo preta */
+  background-color: rgba(0,0,0,0.4); /* Fundo com opacidade */
+}
+
+
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  display: grid;
+  grid-template-areas: 
+    'paragrafo paragrafo paragrafo  close'
+    'sim sim nao nao'  
+  ;
+  grid-row-gap: 20px;
+  align-items: center;
+  justify-items: center;
+  margin: 40vh auto;
+  padding: 20px;
+  width: 80%; 
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  grid-area: close;
+}
+.paragrafo__modal{
+  grid-area: paragrafo;
+  margin: 0;
+}
+.reiniciar__modal{
+  grid-area: sim;
+  width: 80px;
+  padding: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  font-family: "Ga Maamli", sans-serif;
+  border-radius: .5rem;
+}
+.cancelar__modal{
+  grid-area: nao;
+  width: 80px;
+  padding: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  font-family: "Ga Maamli", sans-serif;
+  border-radius: .5rem;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
