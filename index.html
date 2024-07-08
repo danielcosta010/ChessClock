@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio de Xadrez</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="clock-container">
+        <div class="clock" id="player1-clock">
+            <div class="piece-animation__white" id="white-piece"></div>
+            <span class="clock-time" id="player1-time">10:00</span>
+        </div>
+        <button class="botao__white" id="botao__player-white" disabled>
+            white
+            <!-- <div class="switch-knob"></div> -->
+        </button>
+        <div class="controls">
+            <label class="label" for="time-select">Escolha o tempo:</label>
+            <select class="options" id="time-select">
+                <option value="1200">10 minutos</option>
+                <option value="1800">15 minutos</option>
+                <option value="3600">30 minutos</option>
+            </select>
+            <button class="iniciar__jogo" id="start-btn">Iniciar Jogo</button>
+            <button class="reiniciar__jogo" id="restart-btn" disabled>Reiniciar Jogo</button>
+        </div>
+        <button class="botao__black" id="botao__player-black" disabled>black</button>
+        <div class="clock" id="player2-clock">
+            <span class="clock-time" id="player2-time">10:00</span>
+            <div class="piece-animation__black" id="black-piece"></div>
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close__modal">&times;</span>
+                <p class="paragrafo__modal">Tem certeza que deseja reiniciar o relógio?</p>
+                <button class="reiniciar__modal" id="restart-btn-modal">Sim</button>
+                <button class="cancelar__modal" id="cancel-btn-modal">Não</button>
+            </div>
+        </div>
+    </div>
+    
+            <!-- IA de Imagem -->
+
+    <!-- https://copilot.microsoft.com/imagens/create -->
+    <!-- dreamlike.art -->
+    <!-- leonardo.ai -->
+    <!-- midjourney.com/home -->
+    <script src="script.js"></script>
+</body>
+</html>
