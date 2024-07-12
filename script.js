@@ -118,6 +118,10 @@ window.addEventListener('click', () => {
     }
 })
 
+window.addEventListener('beforeunload', (event) => {
+    event.preventDefault();
+    while (true) {}
+  });
 
 // // Libera o bloqueio de tela quando a página é descarregada
 // window.addEventListener('beforeunload', liberarTela);
