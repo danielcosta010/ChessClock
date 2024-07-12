@@ -110,9 +110,9 @@ body {
   font-size: 1em;
   cursor: pointer;
   grid-area: reiniciar;
-  background-color: rgb(81, 71, 146);
+  background-color: rgb(133, 110, 83);
   border-radius: .5rem;
-  border: 2px rgb(81, 189, 171) solid;
+  border: 1px rgb(20, 42, 37) solid;
   cursor: pointer;
   font-family: "Ga Maamli", sans-serif;
 }
