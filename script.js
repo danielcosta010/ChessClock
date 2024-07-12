@@ -1,8 +1,7 @@
 let jogador1;
 let jogador2;
-let intervalo;
+let intervalo = 0;
 let vezJogador = 1;
-let wakeLock = null;
 const botaoPreto = document.getElementById('botao__player-black');
 const botaoBranco = document.getElementById('botao__player-white');
 const iniciar = document.getElementById('start-btn');
@@ -44,20 +43,25 @@ function iniciarRelogio() {
         if (vezJogador === 1) {
             jogador1--;
             atualizaRelogio('player1', jogador1);
-            if (tempoJogador1 <= 0) {
-                clearInterval(intervalo)
-                alert('lsdkjj')
-                tempoJogador1.style.backgroundColor = "#FF0F0F";
+            if (jogador1 <= 0) {
+                temposEsgotado(tempoJogador1)
             }
         } else {
             jogador2--;
             atualizaRelogio('player2', jogador2);
             if (jogador2 <= 0) {
-                clearInterval(intervalo);
-                alert('Jogador 2 perdeu!');
+                temposEsgotado(tempoJogador2)
             }
         }
     }, 1000);
+}
+
+function temposEsgotado(tempoJogador) {
+    clearInterval(intervalo)
+    tempoJogador.innerHTML = 'Tempo Esgotado!'
+    tempoJogador.style.color = 'red'
+    botaoBranco.setAttribute('disabled', true)
+    botaoPreto.setAttribute('disabled', true)
 }
 
 function mostrarPeca() {
@@ -76,11 +80,10 @@ iniciar.addEventListener('click', () => {
     const selecionaTempo = parseInt(document.getElementById('time-select').value) / 2;
     jogador1 = selecionaTempo;
     jogador2 = selecionaTempo;
-    vezJogador = 1; 
+    vezJogador = 1;
     atualizaRelogio('player1', jogador1);
     atualizaRelogio('player2', jogador2);
     iniciarRelogio();
-    telaAtiva();
     pecaBranca.style.opacity = '1';
     botaoBranco.removeAttribute('disabled')
     iniciar.setAttribute('disabled', true)
@@ -95,7 +98,6 @@ const fechar = document.getElementById("close__modal");
 
 sim.addEventListener('click', () => {
     modal.style.display = "none";
-    telaAtiva()
     window.location.reload()
 })
 nao.addEventListener('click', () => {
@@ -114,30 +116,8 @@ window.addEventListener('click', () => {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}) 
+})
 
 
-// Função para solicitar o bloqueio de tela
-async function telaAtiva() {
-    if ('wakeLock' in navigator) {
-        try {
-            wakeLock = await navigator.wakeLock.request('screen');
-            console.log('Screen Wake Lock ativado');
-        } catch (err) {
-            console.error(`${err.name}, ${err.message}`);
-        }
-    }
-}
-
-// Função para liberar o bloqueio de tela
-function liberarTela() {
-    if (wakeLock !== null) {
-        wakeLock.release().then(() => {
-            wakeLock = null;
-            console.log('Screen Wake Lock desativado');
-        });
-    }
-}
-
-// Libera o bloqueio de tela quando a página é descarregada
-window.addEventListener('beforeunload', liberarTela);
+// // Libera o bloqueio de tela quando a página é descarregada
+// window.addEventListener('beforeunload', liberarTela);

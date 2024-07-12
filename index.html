@@ -10,7 +10,7 @@
     <div class="clock-container">
         <div class="clock" id="player1-clock">
             <!-- <div class="piece-animation__white" id="white-piece"></div> -->
-            <video class="piece-animation__white" id="white-piece" width="100" height="100" loop muted playsinline>
+            <video class="piece-animation__white" id="white-piece" loop muted playsinline>
                 <source src="imagens/videoPecasBrancas.mp4" type="video/mp4">
             </video>
             <span class="clock-time" id="player1-time">10:00</span>
@@ -22,7 +22,7 @@
         <div class="controls">
             <label class="label" for="time-select">Escolha o tempo:</label>
             <select class="options" id="time-select">
-                <option value="1200">10 minutos</option>
+                <option value="12">10 minutos</option>
                 <option value="1800">15 minutos</option>
                 <option value="3600">30 minutos</option>
             </select>
@@ -33,9 +33,11 @@
         <div class="clock" id="player2-clock">
             <span class="clock-time" id="player2-time">10:00</span>
             <!-- <div class="piece-animation__black" id="black-piece"></div> -->
-            <video class="piece-animation__black" id="black-piece" width="100" height="100" loop muted playsinline>
+            <video class="piece-animation__black" id="black-piece" loop muted playsinline>
                 <source src="imagens/pecaPreta.mp4" type="video/mp4">
             </video>
+
+            <!-- https://app.pixverse.ai/create/video/text -->
         </div>
         <div id="myModal" class="modal">
             <div class="modal-content">
