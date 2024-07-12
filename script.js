@@ -44,8 +44,8 @@ function iniciarRelogio() {
         if (vezJogador === 1) {
             jogador1--;
             atualizaRelogio('player1', jogador1);
-            if (tempoJogador1 < 11) {
-                clearInterval(interval)
+            if (tempoJogador1 <= 0) {
+                clearInterval(intervalo)
                 alert('lsdkjj')
                 tempoJogador1.style.backgroundColor = "#FF0F0F";
             }
@@ -64,9 +64,11 @@ function mostrarPeca() {
     if (vezJogador === 1) {
         pecaBranca.style.opacity = '0';
         pecaPreta.style.opacity = '1';
+        pecaBranca.play()
     } else {
         pecaBranca.style.opacity = '1';
         pecaPreta.style.opacity = '0';
+        pecaPreta.play()
     }
 }
 

@@ -9,7 +9,10 @@
 <body>
     <div class="clock-container">
         <div class="clock" id="player1-clock">
-            <div class="piece-animation__white" id="white-piece"></div>
+            <!-- <div class="piece-animation__white" id="white-piece"></div> -->
+            <video class="piece-animation__white" id="white-piece" width="100" height="100" loop muted playsinline>
+                <source src="imagens/videoPecasBrancas.mp4" type="video/mp4">
+            </video>
             <span class="clock-time" id="player1-time">10:00</span>
         </div>
         <button class="botao__white" id="botao__player-white" disabled>
@@ -29,7 +32,10 @@
         <button class="botao__black" id="botao__player-black" disabled>black</button>
         <div class="clock" id="player2-clock">
             <span class="clock-time" id="player2-time">10:00</span>
-            <div class="piece-animation__black" id="black-piece"></div>
+            <!-- <div class="piece-animation__black" id="black-piece"></div> -->
+            <video class="piece-animation__black" id="black-piece" width="100" height="100" loop muted playsinline>
+                <source src="imagens/pecaPreta.mp4" type="video/mp4">
+            </video>
         </div>
         <div id="myModal" class="modal">
             <div class="modal-content">
