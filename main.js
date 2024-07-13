@@ -14,31 +14,11 @@ const pecaPreta = document.getElementById('black-piece');
 const tempoJogador1 = document.getElementById('player1-time')
 const tempoJogador2 = document.getElementById('player2-time')
 
-botaoPreto.addEventListener('click', () => {
-    clickJogada(botaoPreto, botaoBranco, 'disabled')
-})
-botaoBranco.addEventListener('click', () => {
-    clickJogada(botaoBranco, botaoPreto, 'disabled')
-})
-
-function clickJogada(branco, preto, desativado){
-    mostrarPeca()
-    iniciarRelogio()
-    selecionaVezJogador()
-    branco.setAttribute(desativado, true)
-    preto.removeAttribute(desativado)
-}
-
 function atualizaRelogio(player, time) {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     document.getElementById(`${player}-time`).textContent = formattedTime;
-}
-
-function selecionaVezJogador() {
-    clearInterval(intervalo);
-    vezJogador = vezJogador === 1 ? 2 : 1;
 }
 
 function iniciarRelogio() {
@@ -78,6 +58,27 @@ function mostrarPeca() {
         pecaPreta.play()
     }
 }
+
+function selecionaVezJogador() {
+    clearInterval(intervalo);
+    vezJogador = vezJogador === 1 ? 2 : 1;
+}
+
+function clickJogada(branco, preto, desativado){
+    mostrarPeca()
+    iniciarRelogio()
+    selecionaVezJogador()
+    branco.setAttribute(desativado, true)
+    preto.removeAttribute(desativado)
+}
+
+botaoBranco.addEventListener('click', () => {
+    clickJogada(botaoBranco, botaoPreto, 'disabled')
+})
+botaoPreto.addEventListener('click', () => {
+    clickJogada(botaoPreto, botaoBranco, 'disabled')
+})
+
 
 iniciar.addEventListener('click', () => {
     const selecionaTempo = parseInt(document.getElementById('time-select').value);
