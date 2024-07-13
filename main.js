@@ -1,5 +1,5 @@
-import { iniciarModal, mostrarModal } from "./modal.js";
-import { requestWakeLock, releaseWakeLock } from "./wakeLock.js";
+import { iniciarModal, mostrarModal } from "./modulosJS/modal.js";
+import { requestWakeLock, releaseWakeLock } from "./modulosJS/wakeLock.js";
 
 let jogador1;
 let jogador2;
@@ -80,7 +80,7 @@ function mostrarPeca() {
 }
 
 iniciar.addEventListener('click', () => {
-    const selecionaTempo = parseInt(document.getElementById('time-select').value) / 2;
+    const selecionaTempo = parseInt(document.getElementById('time-select').value);
     jogador1 = selecionaTempo;
     jogador2 = selecionaTempo;
     vezJogador = 1;
