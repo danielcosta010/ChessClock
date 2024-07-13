@@ -37,6 +37,16 @@ body {
   position: relative;
 }
 
+.menssagem__tela-ativa{
+  position: absolute;
+  top: 85%;
+  width: 185px;
+  color: rgb(98, 135, 44);
+  opacity: 0;
+  font-size: 1rem;
+  z-index: 2;
+}
+
 #player1-time,
 .botao__white {
   transform: rotate(-180deg);
@@ -75,7 +85,7 @@ body {
 .controls {
   display: grid;
   align-items: center;
-  margin: 20px;
+  margin: 10px;
   grid-template-areas:
     'label options'
     'iniciar reiniciar'
