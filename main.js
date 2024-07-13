@@ -1,4 +1,5 @@
 import { iniciarModal, mostrarModal } from "./modal.js";
+import { requestWakeLock, releaseWakeLock } from "./wakeLock.js";
 
 let jogador1;
 let jogador2;
@@ -99,34 +100,6 @@ reiniciar.addEventListener('click', () => {
     mostrarModal()
 })
 
-
-
-let wakeLock = null;
-async function requestWakeLock() {
-    try {
-        wakeLock = await navigator.wakeLock.request('screen');
-        console.log('Wake Lock ativado');
-        wakeLock.addEventListener('release', () => {
-            console.log('Wake Lock desativado');
-        });
-    } catch (err) {
-        console.error(`${err.name}, ${err.message}`);
-    }
-}
-
-function releaseWakeLock() {
-    if (wakeLock) {
-        wakeLock.release()
-            .then(() => {
-                wakeLock = null;
-                console.log('Wake Lock liberado');
-            })
-            .catch(err => {
-                console.error(`${err.name}, ${err.message}`);
-            });
-    }
-}
-
 // Pausar os vídeos quando a página é descarregada
 window.addEventListener('beforeunload', () => {
     whitePieceVideo.pause();
@@ -134,5 +107,3 @@ window.addEventListener('beforeunload', () => {
     releaseWakeLock(); // Liberar Wake Lock
 });
 
-// // Libera o bloqueio de tela quando a página é descarregada
-// window.addEventListener('beforeunload', liberarTela);
