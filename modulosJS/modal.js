@@ -6,8 +6,8 @@ export function iniciarModal(){
   const fechar = document.getElementById("close__modal");
   
   sim.addEventListener('click', () => {
-      modal.style.display = "none";
       window.location.reload()
+      modal.style.display = "none";
   })
   nao.addEventListener('click', () => {
       modal.style.display = "none";
