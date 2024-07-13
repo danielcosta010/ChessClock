@@ -84,6 +84,7 @@ iniciar.addEventListener('click', () => {
     atualizaRelogio('player1', jogador1);
     atualizaRelogio('player2', jogador2);
     iniciarRelogio();
+    requestWakeLock()
     pecaBranca.style.opacity = '1';
     botaoBranco.removeAttribute('disabled')
     iniciar.setAttribute('disabled', true)
