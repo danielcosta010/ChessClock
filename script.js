@@ -119,5 +119,38 @@ window.addEventListener('click', () => {
 })
 
 
+let wakeLock = null;
+async function requestWakeLock() {
+    try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        console.log('Wake Lock ativado');
+        wakeLock.addEventListener('release', () => {
+            console.log('Wake Lock desativado');
+        });
+    } catch (err) {
+        console.error(`${err.name}, ${err.message}`);
+    }
+}
+
+function releaseWakeLock() {
+    if (wakeLock) {
+        wakeLock.release()
+            .then(() => {
+                wakeLock = null;
+                console.log('Wake Lock liberado');
+            })
+            .catch(err => {
+                console.error(`${err.name}, ${err.message}`);
+            });
+    }
+}
+
+// Pausar os vídeos quando a página é descarregada
+window.addEventListener('beforeunload', () => {
+    whitePieceVideo.pause();
+    blackPieceVideo.pause();
+    releaseWakeLock(); // Liberar Wake Lock
+});
+
 // // Libera o bloqueio de tela quando a página é descarregada
 // window.addEventListener('beforeunload', liberarTela);
