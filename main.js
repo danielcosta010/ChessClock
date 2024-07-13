@@ -15,19 +15,19 @@ const tempoJogador1 = document.getElementById('player1-time')
 const tempoJogador2 = document.getElementById('player2-time')
 
 botaoPreto.addEventListener('click', () => {
-    mostrarPeca()
-    iniciarRelogio()
-    selecionaVezJogador()
-    botaoPreto.setAttribute('disabled', true)
-    botaoBranco.removeAttribute('disabled')
+    clickJogada(botaoPreto, botaoBranco, 'disabled')
 })
 botaoBranco.addEventListener('click', () => {
+    clickJogada(botaoBranco, botaoPreto, 'disabled')
+})
+
+function clickJogada(branco, preto, desativado){
     mostrarPeca()
     iniciarRelogio()
     selecionaVezJogador()
-    botaoBranco.setAttribute('disabled', true)
-    botaoPreto.removeAttribute('disabled')
-})
+    branco.setAttribute(desativado, true)
+    preto.removeAttribute(desativado)
+}
 
 function atualizaRelogio(player, time) {
     const minutes = Math.floor(time / 60);
