@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap');
+@import url('estilos/modal.css');
 
 body {
   display: flex;
@@ -37,7 +38,7 @@ body {
   position: relative;
 }
 
-.menssagem__tela-ativa{
+.menssagem__tela-ativa {
   position: absolute;
   top: 85%;
   width: 185px;
@@ -130,81 +131,3 @@ body {
 /* https://www.brasilcode.com.br/35-botoes-css-com-animacao/ */
 
 
-/* modal reiniciar */
-.modal {
-  display: none;
-  /* Oculto por padrão */
-  position: fixed;
-  /* Fica fixo na tela */
-  z-index: 1;
-  /* Fica na frente de outros elementos */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Largura total */
-  height: 100%;
-  /* Altura total */
-  overflow: hidden;
-  /* Permite rolagem se necessário */
-  background-color: rgb(0, 0, 0);
-  /* Cor de fundo preta */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Fundo com opacidade */
-}
-
-
-.modal-content {
-  background-color: #fefefe;
-  border: 1px solid #888;
-  display: grid;
-  grid-template-areas:
-    'paragrafo paragrafo paragrafo  close'
-    'sim sim nao nao'
-  ;
-  grid-row-gap: 20px;
-  align-items: center;
-  justify-items: center;
-  margin: 40vh auto;
-  padding: 20px;
-  width: 80%;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  grid-area: close;
-}
-
-.paragrafo__modal {
-  grid-area: paragrafo;
-  margin: 0;
-}
-
-.reiniciar__modal {
-  grid-area: sim;
-  width: 80px;
-  padding: 4px;
-  font-size: 1em;
-  cursor: pointer;
-  font-family: "Ga Maamli", sans-serif;
-  border-radius: .5rem;
-}
-
-.cancelar__modal {
-  grid-area: nao;
-  width: 80px;
-  padding: 4px;
-  font-size: 1em;
-  cursor: pointer;
-  font-family: "Ga Maamli", sans-serif;
-  border-radius: .5rem;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}

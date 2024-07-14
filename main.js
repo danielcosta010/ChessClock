@@ -11,14 +11,15 @@ const iniciar = document.getElementById('start-btn');
 const reiniciar = document.getElementById('restart-btn');
 const pecaBranca = document.getElementById('white-piece');
 const pecaPreta = document.getElementById('black-piece');
-const tempoJogador1 = document.getElementById('player1-time')
-const tempoJogador2 = document.getElementById('player2-time')
+const tempoJogador1 = document.getElementById('player1-time');
+const tempoJogador2 = document.getElementById('player2-time');
+const selecionaTempo = document.getElementById('time-select')
 
 function atualizaRelogio(player, time) {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    document.getElementById(`${player}-time`).textContent = formattedTime;
+    return document.getElementById(`${player}-time`).textContent = formattedTime;
 }
 
 function iniciarRelogio() {
@@ -79,20 +80,25 @@ botaoPreto.addEventListener('click', () => {
     clickJogada(botaoPreto, botaoBranco, 'disabled')
 })
 
+selecionaTempo.addEventListener('change', () => {
+    tempoJogador1.textContent = atualizaRelogio('player1', selecionaTempo.value);
+    tempoJogador2.textContent = atualizaRelogio('player2', selecionaTempo.value);
+})
 
 iniciar.addEventListener('click', () => {
-    const selecionaTempo = parseInt(document.getElementById('time-select').value);
-    jogador1 = selecionaTempo;
-    jogador2 = selecionaTempo;
+    const selecionaTempoJogador = parseInt(document.getElementById('time-select').value);
+    jogador1 = selecionaTempoJogador;
+    jogador2 = selecionaTempoJogador;
     vezJogador = 1;
     atualizaRelogio('player1', jogador1);
     atualizaRelogio('player2', jogador2);
     iniciarRelogio();
-    requestWakeLock()
+    requestWakeLock();
     pecaBranca.style.opacity = '1';
-    botaoBranco.removeAttribute('disabled')
-    iniciar.setAttribute('disabled', true)
-    reiniciar.removeAttribute('disabled')
+    botaoBranco.removeAttribute('disabled');
+    iniciar.setAttribute('disabled', true);
+    reiniciar.removeAttribute('disabled');
+    selecionaTempo.setAttribute('disabled', true);
 });
 
 iniciarModal()
