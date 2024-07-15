@@ -28,35 +28,35 @@ function iniciarRelogio() {
             jogador1--;
             atualizaRelogio('player1', jogador1);
             if (jogador1 <= 0) {
-                temposEsgotado(tempoJogador1)
+                temposEsgotado(tempoJogador1);
             }
         } else {
             jogador2--;
             atualizaRelogio('player2', jogador2);
             if (jogador2 <= 0) {
-                temposEsgotado(tempoJogador2)
+                temposEsgotado(tempoJogador2);
             }
         }
     }, 1000);
 }
 
 function temposEsgotado(tempoJogador) {
-    clearInterval(intervalo)
-    tempoJogador.innerHTML = 'Tempo Esgotado!'
-    tempoJogador.style.color = 'red'
-    botaoBranco.setAttribute('disabled', true)
-    botaoPreto.setAttribute('disabled', true)
+    clearInterval(intervalo);
+    tempoJogador.innerHTML = 'Tempo Esgotado!';
+    tempoJogador.style.color = 'red';
+    botaoBranco.setAttribute('disabled', true);
+    botaoPreto.setAttribute('disabled', true);
 }
 
 function mostrarPeca() {
     if (vezJogador === 1) {
         pecaBranca.style.opacity = '0';
         pecaPreta.style.opacity = '1';
-        pecaBranca.play()
+        pecaBranca.play();
     } else {
         pecaBranca.style.opacity = '1';
         pecaPreta.style.opacity = '0';
-        pecaPreta.play()
+        pecaPreta.play();
     }
 }
 
@@ -65,19 +65,19 @@ function selecionaVezJogador() {
     vezJogador = vezJogador === 1 ? 2 : 1;
 }
 
-function clickJogada(branco, preto, desativado){
-    mostrarPeca()
-    iniciarRelogio()
-    selecionaVezJogador()
-    branco.setAttribute(desativado, true)
-    preto.removeAttribute(desativado)
+function clickJogada(branco, preto){
+    mostrarPeca();
+    iniciarRelogio();
+    selecionaVezJogador();
+    branco.setAttribute('disabled', true);
+    preto.removeAttribute('disabled');
 }
 
 botaoBranco.addEventListener('click', () => {
-    clickJogada(botaoBranco, botaoPreto, 'disabled')
+    clickJogada(botaoBranco, botaoPreto);
 })
 botaoPreto.addEventListener('click', () => {
-    clickJogada(botaoPreto, botaoBranco, 'disabled')
+    clickJogada(botaoPreto, botaoBranco);
 })
 
 selecionaTempo.addEventListener('change', () => {
@@ -107,10 +107,9 @@ reiniciar.addEventListener('click', () => {
     mostrarModal()
 })
 
-// Pausar os vídeos quando a página é descarregada
 window.addEventListener('beforeunload', () => {
     whitePieceVideo.pause();
     blackPieceVideo.pause();
-    releaseWakeLock(); // Liberar Wake Lock
+    releaseWakeLock();
 });
 
