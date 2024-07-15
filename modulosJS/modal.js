@@ -1,8 +1,8 @@
 const modal = document.getElementById("myModal");
 
 export function iniciarModal(){
-  const sim = document.getElementById('restart-btn-modal')
-  const nao = document.getElementById('cancel-btn-modal')
+  const sim = document.getElementById('restart-btn-modal');
+  const nao = document.getElementById('cancel-btn-modal');
   const fechar = document.getElementById("close__modal");
   
   sim.addEventListener('click', () => {
@@ -26,5 +26,5 @@ export function iniciarModal(){
 }
 
 export function mostrarModal(){
-  modal.style.display = 'block'
+  modal.style.display = 'block';
 }
