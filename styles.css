@@ -22,14 +22,14 @@ body {
   font-style: italic;
 }
 
-.clock-container {
+.relogio-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
-.clock {
+.relogio {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +38,7 @@ body {
   position: relative;
 }
 
-.menssagem__tela-ativa {
+.mensagem__tela-ativa {
   position: absolute;
   top: 85%;
   width: 185px;
@@ -48,13 +48,11 @@ body {
   z-index: 2;
 }
 
-#player1-time,
-.botao__white {
+.tempo__jogador1, .botao__branco {
   transform: rotate(-180deg);
 }
 
-.botao__white,
-.botao__black {
+.botao__branco, .botao__preto {
   font-family: "Ga Maamli", sans-serif;
   font-weight: 400;
   font-style: italic;
@@ -64,7 +62,7 @@ body {
   border-radius: 1rem;
 }
 
-.piece-animation__black {
+.animacao-peca__black {
   position: absolute;
   width: 120px;
   height: 60px;
@@ -73,7 +71,7 @@ body {
   transition: opacity 0.3s;
 }
 
-.piece-animation__white {
+.animacao-peca__white {
   position: absolute;
   width: 120px;
   height: 60px;
