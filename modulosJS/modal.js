@@ -1,9 +1,9 @@
-const modal = document.getElementById("myModal");
+const modal = document.getElementById("meuModal");
 
 export function iniciarModal(){
-  const sim = document.getElementById('restart-btn-modal');
-  const nao = document.getElementById('cancel-btn-modal');
-  const fechar = document.getElementById("close__modal");
+  const sim = document.getElementById('btn__reiniciar-modal');
+  const nao = document.getElementById('btn__cancelar-modal');
+  const fechar = document.getElementById("fechar__modal");
   
   sim.addEventListener('click', () => {
       window.location.reload()
