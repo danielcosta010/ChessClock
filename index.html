@@ -9,16 +9,16 @@
 </head>
 
 <body>
-    <div class="clock-container">
-        <div class="clock" id="player1-clock">
+    <div class="relogio-container">
+        <div class="relogio" id="relogio-jogador1">
             <!-- <div class="piece-animation__white" id="white-piece"></div> -->
-            <video class="piece-animation__white" id="white-piece" loop muted playsinline>
+            <video class="animacao-peca__white" id="peca-branca" loop muted playsinline>
                 <source src="imagens/videoPecasBrancas.mp4" type="video/mp4">
             </video>
-            <span class="clock-time" id="player1-time">03:00</span>
-            <span class="menssagem__tela-ativa" id="tela__ativa"></span>
+            <span class="tempo__jogador1" id="jogador1-tempo">03:00</span>
+            <span class="mensagem__tela-ativa" id="tela__ativa"></span>
         </div>
-        <button class="botao__white" id="botao__player-white" disabled>white</button>
+        <button class="botao__branco" id="botao__peca-branca" disabled>BRANCAS</button>
         <div class="controls">
             <label class="label" for="time-select">Escolha o tempo:</label>
             <select class="options" id="time-select">
@@ -31,25 +31,25 @@
                 <option value="2700">45 minutos</option>
                 <option value="3600">1 hora</option>
             </select>
-            <button class="iniciar__jogo" id="start-btn">Iniciar Jogo</button>
-            <button class="reiniciar__jogo" id="restart-btn" disabled>Reiniciar Jogo</button>
+            <button class="iniciar__jogo" id="iniciar-btn">Iniciar Jogo</button>
+            <button class="reiniciar__jogo" id="reiniciar-btn" disabled>Reiniciar Jogo</button>
         </div>
-        <button class="botao__black" id="botao__player-black" disabled>black</button>
-        <div class="clock" id="player2-clock">
-            <span class="clock-time" id="player2-time">03:00</span>
+        <button class="botao__preto" id="botao__peca-preta" disabled>PRETAS</button>
+        <div class="relogio" id="relogio-jogador2">
+            <span class="" id="jogador2-tempo">03:00</span>
             <!-- <div class="piece-animation__black" id="black-piece"></div> -->
-            <video class="piece-animation__black" id="black-piece" loop muted playsinline>
+            <video class="animacao-peca__black" id="peca-preta" loop muted playsinline>
                 <source src="imagens/pecaPreta.mp4" type="video/mp4">
             </video>
 
             <!-- https://app.pixverse.ai/create/video/text -->
         </div>
-        <div id="myModal" class="modal">
+        <div id="meuModal" class="modal">
             <div class="modal-content">
-                <span class="close" id="close__modal">&times;</span>
+                <span class="fechar" id="fechar__modal">&times;</span>
                 <p class="paragrafo__modal">Tem certeza que deseja reiniciar o relógio?</p>
-                <button class="reiniciar__modal" id="restart-btn-modal">Sim</button>
-                <button class="cancelar__modal" id="cancel-btn-modal">Não</button>
+                <button class="reiniciar__modal" id="btn__reiniciar-modal">Sim</button>
+                <button class="cancelar__modal" id="btn__cancelar-modal">Não</button>
             </div>
         </div>
     </div>
