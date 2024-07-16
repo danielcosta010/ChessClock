@@ -14,7 +14,7 @@ export async function requestWakeLock() {
             console.log('Wake Lock desativado');
         });
     } catch (err) {
-        telaAtiva.innerHTML = `${err.name}, ${err.message}: seu navegador não tem suporte para manter a tela ativa`;
+        telaAtiva.innerHTML = `${err.name}, ${err.message}: Seu navegador não tem suporte para manter a tela ativa`;
     }
 }
 
@@ -25,7 +25,7 @@ export function releaseWakeLock() {
                 wakeLock = null;
             })
             .catch(err => {
-                telaAtiva.innerHTML = `${err.name}, ${err.message}: seu navegafor não tem suporte para manter a tela ativa`;
+                telaAtiva.innerHTML = `${err.name}, ${err.message}: Seu navegafor não tem suporte para manter a tela ativa`;
             });
     }
 }
