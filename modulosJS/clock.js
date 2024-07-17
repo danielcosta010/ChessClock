@@ -65,7 +65,7 @@ function mostrarPeca() {
   }
 }
 
-function selecionaVezJogador() {
+function selecionarVezJogador() {
   clearInterval(intervalo);
   vezJogador = vezJogador === 1 ? 2 : 1;
 }
@@ -77,4 +77,4 @@ selecionaTempo.addEventListener('change', () => {
   tempoJogador2.textContent = atualizaRelogio('jogador2', tempo);
 })
 
-export {  iniciarJogo, iniciarRelogio, mostrarPeca, selecionaVezJogador }
+export {  iniciarJogo, iniciarRelogio, mostrarPeca, selecionarVezJogador }
