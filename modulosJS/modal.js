@@ -1,6 +1,6 @@
 const modal = document.getElementById("meuModal");
 
-export function iniciarModal(){
+function iniciarModal(){
   const sim = document.getElementById('btn__reiniciar-modal');
   const nao = document.getElementById('btn__cancelar-modal');
   const fechar = document.getElementById("fechar__modal");
@@ -25,6 +25,8 @@ export function iniciarModal(){
 
 }
 
-export function mostrarModal(){
+function mostrarModal(){
   modal.style.display = 'block';
 }
+
+export { iniciarModal, mostrarModal }
