@@ -1,6 +1,7 @@
 let wakeLock = null;
 const telaAtiva = document.getElementById('tela__ativa');
-export async function requestWakeLock() {
+
+async function requestWakeLock() {
     try {
         wakeLock = await navigator.wakeLock.request('screen');
         telaAtiva.style.opacity = '1';
@@ -18,7 +19,7 @@ export async function requestWakeLock() {
     }
 }
 
-export function releaseWakeLock() {
+function releaseWakeLock() {
     if (wakeLock) {
         wakeLock.release()
             .then(() => {
@@ -29,3 +30,5 @@ export function releaseWakeLock() {
             });
     }
 }
+
+export { requestWakeLock, releaseWakeLock }
