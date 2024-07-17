@@ -1,6 +1,6 @@
+import { iniciarRelogio, iniciarJogo, selecionarVezJogador, mostrarPeca } from "./modulosJS/clock.js";
 import { iniciarModal, mostrarModal } from "./modulosJS/modal.js";
 import { requestWakeLock, releaseWakeLock } from "./modulosJS/wakeLock.js";
-import { iniciarRelogio, iniciarJogo, selecionaVezJogador, mostrarPeca } from "./modulosJS/clock.js";
 
 const botaoPreto = document.getElementById('botao__peca-preta');
 const botaoBranco = document.getElementById('botao__peca-branca');
@@ -10,7 +10,7 @@ const reiniciar = document.getElementById('reiniciar-btn');
 function clickJogada(branco, preto) {
     mostrarPeca();
     iniciarRelogio();
-    selecionaVezJogador();
+    selecionarVezJogador();
     branco.setAttribute('disabled', true);
     preto.removeAttribute('disabled');
   }
