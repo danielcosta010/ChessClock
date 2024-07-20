@@ -2,6 +2,7 @@ import { iniciarRelogio, iniciarJogo, selecionarVezJogador, mostrarPeca } from "
 import { iniciarModal, mostrarModal } from "./modulosJS/modal.js";
 import { requestWakeLock, releaseWakeLock } from "./modulosJS/wakeLock.js";
 
+
 const botaoPreto = document.getElementById('botao__peca-preta');
 const botaoBranco = document.getElementById('botao__peca-branca');
 const iniciar = document.getElementById('iniciar-btn');
@@ -42,3 +43,4 @@ window.addEventListener('beforeunload', () => {
     releaseWakeLock();
 });
 
+export { botaoBranco, botaoPreto}
