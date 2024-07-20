@@ -1,3 +1,4 @@
+import { botaoBranco, botaoPreto } from "../main.js";
 let jogador1;
 let jogador2;
 let vezJogador;
@@ -48,7 +49,7 @@ function iniciarRelogio() {
 function temposEsgotado(tempoJogador) {
   clearInterval(intervalo);
   tempoJogador.innerHTML = 'Tempo Esgotado!';
-  tempoJogador.style.color = 'red';
+  tempoJogador.style.color = 'red'; 
   botaoBranco.setAttribute('disabled', true);
   botaoPreto.setAttribute('disabled', true);
 }
